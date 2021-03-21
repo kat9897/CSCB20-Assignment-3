@@ -1,0 +1,3 @@
+As a student user, the student must be able to see
+all upcoming lectures/due dates on an integrated calendar
+when they click the Calendar tab

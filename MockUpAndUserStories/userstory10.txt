@@ -1,0 +1,3 @@
+When a student user clicks on the syllabus tab,
+they can click another button that will download
+the syllabus for them

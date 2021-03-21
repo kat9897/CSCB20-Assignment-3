@@ -1,0 +1,4 @@
+As a student user, when the student clicks on any
+of the three buttons, they should take them to another
+tab with the corresponding link attached to the label
+of the button

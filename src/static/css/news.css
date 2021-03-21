@@ -1,0 +1,17 @@
+body {
+    background-image: url("https://motionarray.imgix.net/preview-221009-qr45Mrcxf8-high_0000.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.news-title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background: #00204e;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px auto 50px auto;
+    width: 200px;
+}

@@ -1,2 +1,2 @@
-# CSCB20-Assignment-3
-A website for CSCB63 using Flask and SQLite to connect to a database for their course website.
+# CSCB20-Assignment-2
+We created the frontend for the course CSCB63 - Design and Analysis of Data for an assignment in the course CSCB20.

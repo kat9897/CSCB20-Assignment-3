@@ -1,0 +1,5 @@
+As a student user, when you click on the Course Team
+button, you can view and click each of the pictures of 
+the UTSC faculty in math and sciences and it will be
+linked to each of their pages. It will also have their 
+name and title underneath each person

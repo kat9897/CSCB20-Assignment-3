@@ -1,0 +1,5 @@
+When student users click on the Lectures tab,
+they will be able to see the current week and
+the previous weeks' material as well as 
+pre-lecture material. They can also access
+the Zoom recordings here
