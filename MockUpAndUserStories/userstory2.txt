@@ -1,3 +1,0 @@
-Student User can see the course description and 
-general information such as the instructor's contact
-information and who they are on the Home page

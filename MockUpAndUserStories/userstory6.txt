@@ -1,4 +1,0 @@
-When student users click on the Assignments tab,
-they will be able to see each assignment and the links
-to them, as well as the due dates and 
-weight

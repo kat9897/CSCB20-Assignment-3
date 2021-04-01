@@ -1,4 +1,0 @@
-As a student user, when they click on the 
-tutorial page, they can see the handouts and
-solutions according to each week and a separate section
-with each TA's name, email, and Zoom link
