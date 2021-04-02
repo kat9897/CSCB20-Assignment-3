@@ -102,10 +102,11 @@ def signup():
             if not correct_type:
                 errorMessage = errorMessage+"Invalid user type. Please enter student or instructor\n"
 
-            return render_template("signup.html", value=errorMessage)
+            return render_template("signup.html", value=0,
+                                   error=errorMessage)
     else:
         db.close()
-        return render_template("signup.html", value="")
+        return render_template("signup.html", value=0, error="")
 
 
 @app.route("/signin", methods=['GET', 'POST'])
@@ -121,12 +122,12 @@ def signin():
         db.close()
     else:
         db.close()
-        return render_template("signin.html")
+        return render_template("signin.html", value=0)
     if user is not None:
         return redirect(url_for('home'))
     else:
         session.clear()
-        return render_template("signin.html", value="Wrong User ID or password.")
+        return render_template("signin.html", value=0, error="Wrong User ID or password.")
 
 
 @app.route("/logout")
