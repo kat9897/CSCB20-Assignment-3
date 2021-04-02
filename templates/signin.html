@@ -13,6 +13,27 @@
     <title>CSCB20 Assignment 3</title>
   </head>
   <body>
-    {% extends "index.html" %} {% block content %} {% endblock %}
+    {% extends "index.html" %} {% block content %}
+    <div class="box">
+      <form method="POST">
+        <input
+          id="userid-input-box"
+          type="text"
+          name="userid"
+          placeholder="User ID"
+        />
+      </br>
+        <input
+          id="password-input-box"
+          type="text"
+          name="password"
+          placeholder="Password"
+        />
+      </br>
+        <input type="submit" id="button" name="submit-button" value="sign in" />
+      </form>
+    </div>
+    {% endblock %}
   </body>
 </html>
+
