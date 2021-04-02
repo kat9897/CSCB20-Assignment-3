@@ -39,13 +39,76 @@ def home():
     return render_template("index.html")
 
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    db = get_db()
+    db.row_factory = make_dicts
+    if request.method == 'POST':
+        session['userid'] = request.form.get('userid', type=int)
+        session['password'] = request.form['password']
+        session['usertype'] = request.form['usertype']
+        session['username'] = request.form['username']
+        user = query_db('select * from User where userid=?',
+                        (session['userid'],), one=True)
+
+        correct_userid_length = False
+        if session['userid'] >= 1000000000 and session['userid'] <= 9999999999:
+            correct_userid_length = True
+
+        correct_password_length = False
+        if len(session['password']) == 8:
+            correct_password_length = True
+
+        correct_type = False
+        if session['usertype'] == "student" or session['usertype'] == "instructor":
+            correct_type = True
+
+        if user is None and correct_type and correct_password_length and correct_userid_length:
+            email = ""+str(session['userid'])+"@mail.utoronto.ca"
+            cursor = db.cursor()
+            cursor.execute("INSERT INTO User ('userid', 'usertype', 'password') VALUES (?,?,?)",
+                           (session['userid'], session['usertype'], session['password']))
+            db.commit()
+            cursor.close()
+            if session['usertype'] == "student":
+                cursor = db.cursor()
+                cursor.execute("INSERT INTO Student ('userid', 'username', 'email') VALUES (?,?,?)",
+                               (session['userid'], session['username'], email))
+                db.commit()
+                cursor.close()
+                db.close()
+            else:
+                cursor = db.cursor()
+                cursor.execute("INSERT INTO Instructor('userid', 'username', 'email') VALUES (?,?,?)",
+                               (session['userid'], session['username'], email))
+                db.commit()
+                cursor.close()
+                db.close()
+            return redirect(url_for('home'))
+        else:
+            session.clear()
+            db.close()
+            errorMessage = ""
+            if user is not None:
+                errorMessage = errorMessage+"Account already exits.\n"
+            elif 'userid' not in session:
+                errorMessage = errorMessage+"UserID should be a 10 digit number.\n"
+            if not correct_password_length:
+                errorMessage = errorMessage + \
+                    "Invalid password length. The password length should be 8.\n"
+            if not correct_type:
+                errorMessage = errorMessage+"Invalid user type. Please enter student or instructor\n"
+
+            return render_template("signup.html", value=errorMessage)
+    else:
+        db.close()
+        return render_template("signup.html", value="")
+
+
 @app.route("/signin", methods=['GET', 'POST'])
 def signin():
     db = get_db()
     db.row_factory = make_dicts
-    users = []
-    for user in query_db('select * from User'):
-        users.append(user)
     user = None
     if request.method == 'POST':
         session['userid'] = request.form['userid']
