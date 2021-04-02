@@ -50,3 +50,7 @@ body {
   top: 40%;
   left: 35%;
 }
+
+#errorMessage {
+  color: white;
+}
