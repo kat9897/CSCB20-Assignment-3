@@ -36,7 +36,10 @@ def query_db(query, args=(), one=False):
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    if 'userid' in session:
+        return render_template("index.html", value=1)
+    else:
+        return render_template("index.html", value=0)
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -123,7 +126,13 @@ def signin():
         return redirect(url_for('home'))
     else:
         session.clear()
-        return render_template("signin.html")
+        return render_template("signin.html", value="Wrong User ID or password.")
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
 
 if __name__ == '_main_':
