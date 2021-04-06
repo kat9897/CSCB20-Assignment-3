@@ -3,6 +3,7 @@ from flask import session, Flask, render_template, url_for, request, g, redirect
 
 DATABASE = "./assignment3.db"
 
+# To run: python -m flask run
 
 app = Flask(__name__)
 app.secret_key = b'Assignment'
@@ -37,7 +38,10 @@ def query_db(query, args=(), one=False):
 @app.route('/')
 def home():
     if 'userid' in session:
-        return render_template("index.html", value=1)
+        if session['usertype'] == 'instructor':
+            return render_template("index.html", value=2, usertype=session['usertype'])
+        else:
+            return render_template("index.html", value=1, usertype=session['usertype'])
     else:
         return render_template("index.html", value=0)
 
@@ -55,9 +59,7 @@ def signup():
                         (session['userid'],), one=True)
 
         correct_userid_length = False
-        if session['userid'] is None:
-            correct_userid_length = False
-        elif session['userid'] >= 1000000000 and session['userid'] <= 9999999999:
+        if session['userid'] >= 1000000000 and session['userid'] <= 9999999999:
             correct_userid_length = True
 
         correct_password_length = False
@@ -95,7 +97,7 @@ def signup():
             db.close()
             errorMessage = ""
             if user is not None:
-                errorMessage = errorMessage+"Account already exits.\n"
+                errorMessage = errorMessage+"Account already exists.\n"
             elif 'userid' not in session:
                 errorMessage = errorMessage+"UserID should be a 10 digit number.\n"
             if not correct_password_length:
@@ -121,11 +123,13 @@ def signin():
         session['password'] = request.form['password']
         user = query_db('select * from User where userid=? AND password=?',
                         (session['userid'], session['password']), one=True)
+        session['usertype'] = user[1]
         db.close()
     else:
         db.close()
         return render_template("signin.html", value=0)
     if user is not None:
+        db.close()
         return redirect(url_for('home'))
     else:
         session.clear()
