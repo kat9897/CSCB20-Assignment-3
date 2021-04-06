@@ -38,10 +38,7 @@ def query_db(query, args=(), one=False):
 @app.route('/')
 def home():
     if 'userid' in session:
-        if session['usertype'] == 'instructor':
-            return render_template("index.html", value=2, usertype=session['usertype'])
-        else:
-            return render_template("index.html", value=1, usertype=session['usertype'])
+        return render_template("index.html", value=session['value'], usertype=session['usertype'])
     else:
         return render_template("index.html", value=0)
 
@@ -125,6 +122,10 @@ def signin():
         user = query_db('select * from User where userid=? AND password=?',
                         (session['userid'], session['password']), one=True)
         session['usertype'] = user[1]
+        if session['usertype'] == 'instructor':
+            session['value'] = 2
+        else:
+            session['value'] = 1
         db.close()
     else:
         db.close()
@@ -141,6 +142,15 @@ def signin():
 def logout():
     session.clear()
     return redirect(url_for('home'))
+
+@app.route("/studentFeedback", methods=['GET', 'POST'])
+def studentFeedback():
+    db = get_db()
+    db.row_factory = make_dicts
+    
+    return render_template("student-feedback.html", value=session['value'])
+
+
 
 
 if __name__ == '_main_':
