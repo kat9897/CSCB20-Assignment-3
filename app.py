@@ -59,8 +59,9 @@ def signup():
                         (session['userid'],), one=True)
 
         correct_userid_length = False
-        if session['userid'] >= 1000000000 and session['userid'] <= 9999999999:
-            correct_userid_length = True
+        if session['userid'] is not None:
+            if session['userid'] >= 1000000000 and session['userid'] <= 9999999999:
+                correct_userid_length = True
 
         correct_password_length = False
         if len(session['password']) == 8:
