@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block head %}
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/signin.css') }}"
-    />
-    {% endblock %}
-    <title>CSCB20 Assignment 3</title>
-  </head>
-  <body>
-    {% extends "index.html" %} {% block content %}
-    <div class="box">
-      <table>
-          <tr>
-              <th>Professor</th>
-              <th>Mark</th>
-              <th>Type</th>
-          </tr>
-          {% for mark in marks %}
-          <tr>
-              <td>{{ mark['professorID'] }}</td>
-              <td>{{ mark['mark'] }}</td>
-              <td>{{ mark['Type'] }}</td>
-          </tr>
-          {% endfor %}
-      </table>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/marks.css') }}" />
+  {% endblock %}
+  <title>CSCB20 Assignment 3</title>
+</head>
+
+<body>
+  {% extends "index.html" %} {% block content %}
+  <div class="box">
+    <div class="main-table">
+      <div class="table-header">Marks</div>
+      <div class="table-header-row">
+        <div class="table-header-cell">Professor</div>
+        <div class="table-header-cell">Mark</div>
+        <div class="table-header-cell">Type</div>
+        <div class="table-header-cell">Remark Request</div>
+      </div>
+      <div class="table-body">
+        {% for mark in marks %}
+        <div class="table-body-row-3 btn">
+          <div class="table-body-cell">{{ mark['username'] }}</div>
+          <div class="table-body-cell">{{ mark['mark'] }}</div>
+          <div class="table-body-cell">{{ mark['type'] }}</div>
+          <div class="table-body-cell btn"><a href="/student-remark">Submit Remark Request</a></div>
+        </div>
+        {% endfor %}  
+      </div>
     </div>
-    {% endblock %}
-  </body>
+  </div>
+  {% endblock %}
+</body>
+
 </html>

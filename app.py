@@ -66,7 +66,11 @@ def signup():
             correct_password_length = True
 
         correct_type = False
-        if session['usertype'] == "student" or session['usertype'] == "instructor":
+        if session['usertype'] is not None:
+            if session['usertype'] == "instructor":
+                session['value'] = 2
+            else:
+                session['value'] = 1
             correct_type = True
 
         if user is None and correct_type and correct_password_length and correct_userid_length:
@@ -80,6 +84,7 @@ def signup():
                 cursor = db.cursor()
                 cursor.execute("INSERT INTO Student ('userid', 'username', 'email') VALUES (?,?,?)",
                                (session['userid'], session['username'], email))
+                session['value'] = 1
                 db.commit()
                 cursor.close()
                 db.close()
@@ -87,6 +92,7 @@ def signup():
                 cursor = db.cursor()
                 cursor.execute("INSERT INTO Instructor('userid', 'username', 'email') VALUES (?,?,?)",
                                (session['userid'], session['username'], email))
+                session['value'] = 2
                 db.commit()
                 cursor.close()
                 db.close()
@@ -122,7 +128,7 @@ def signin():
         session['password'] = request.form['password']
         user = query_db('select * from User where userid=? AND password=?',
                         (session['userid'], session['password']), one=True)
-        session['usertype'] = user[1]
+        session['usertype'] = user['usertype']
         if session['usertype'] == 'instructor':
             session['value'] = 2
         else:
@@ -148,23 +154,32 @@ def logout():
 def studentFeedback():
     db = get_db()
     db.row_factory = make_dicts
-    cursor = db.cursor()
+    cur = db.cursor()
 
     prof = query_db("select * from Instructor")
     
     if request.method == "POST":
+        print("Blah")
         feedback = request.form
+        print(feedback)
+        print("2 Blah")
         prof = query_db("select * from Instructor where username=?", [feedback['professor']], one=True) 
 
         question_num = 1
         for question in feedback:
-            cursor.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", 
-            [question_num, prof['userid'], session['userid'], question])
+            print(question_num)
+            print(prof['userid'])
+            print(session['userid'])
+            print(feedback['question'])
+            cur.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", 
+            [question_num, prof['userid'], session['userid'], feedback['question']])
             question_num += 1
+
+        cur.close()
         
-        db.commit()
-        db.close()
-        cursor.close()
+    prof = query_db("select * from Instructor")
+    db.commit()
+    db.close()
     
     return render_template("student-feedback.html", value=session['value'], professors=prof)
 
@@ -176,8 +191,10 @@ def marks():
 
     # List of dictionaries
     marks = query_db("select * from Marks where studentID=?", [student_id])
-    
-    print(marks)
+
+    for mark in marks:
+        professor = query_db("select username from Instructor where userid=?", [mark['professorID']], one=True)
+        mark['username'] = professor['username']
 
     db.close()
     return render_template("marks.html", marks=marks, value=session['value'])

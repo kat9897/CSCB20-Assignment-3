@@ -14,23 +14,22 @@
 <body>
   {% extends "index.html" %} {% block content %}
   <div class="box">
-    <form method="POST" action="/studentFeedback">
+    <form method="POST">
 
-      <select id="usertype-input-box" type="text" name="prof-person" class="input">
-        {% for professor in professors %}
-        <option name="professor" value="{{ professor['username'] }}">{{ professor['username'] }}</option>
-        {% endfor %}
-      </select></br>
-      <textarea id="userid-input-box" type="text" name="question"
+    <select id="usertype-input-box" type="text" name="usertype" class="input">
+      {% for professor in professors %}
+      <option name="professor" value="{{ professor['username'] }}">{{ professor['username'] }}</option>
+      {% endfor %}
+    </select>
+      <textarea id="userid-input-box" type="text" name="q1"
         placeholder="What do you like about the instructor's teachings?"></textarea>
       </br>
-      <textarea id="userid-input-box" type="text" name="question"
+      <textarea id="userid-input-box" type="text" name="q2"
         placeholder="What do you recommend the instructor do in order to improve their teaching methods?"></textarea>
       </br>
-      <textarea id="userid-input-box" type="text" name="question"
-        placeholder="What do you like about the labs?"></textarea>
+      <textarea id="userid-input-box" type="text" name="q3" placeholder="What do you like about the labs?"></textarea>
       </br>
-      <textarea id="userid-input-box" type="text" name="question"
+      <textarea id="userid-input-box" type="text" name="q4"
         placeholder="What do you recommend the lab instructors do in order to improve their teaching methods?"></textarea>
       </br>
       <pre id="errorMessage">{{ error }}</pre>
