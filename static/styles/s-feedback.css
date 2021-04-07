@@ -1,0 +1,27 @@
+textarea {
+    height: 30;
+    width: 10;
+    position: center;
+}
+body {
+    background-image: url("https://onesearch.library.utoronto.ca/sites/default/files/music_interior.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.box {
+    position: center;
+    display: flex;
+    justify-content: center;
+}
+
+#button {
+    width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

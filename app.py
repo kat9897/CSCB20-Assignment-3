@@ -159,20 +159,22 @@ def studentFeedback():
     prof = query_db("select * from Instructor")
     
     if request.method == "POST":
-        print("Blah")
         feedback = request.form
-        print(feedback)
-        print("2 Blah")
-        prof = query_db("select * from Instructor where username=?", [feedback['professor']], one=True) 
-
         question_num = 1
-        for question in feedback:
-            print(question_num)
-            print(prof['userid'])
-            print(session['userid'])
-            print(feedback['question'])
-            cur.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", 
-            [question_num, prof['userid'], session['userid'], feedback['question']])
+
+        prof = query_db("select * from Instructor where username=?",[request.form['prof-person']], one=True) 
+        q1 = feedback['question1']
+        q2 = feedback['question2']
+        q3 = feedback['question3']
+        q4 = feedback['question4']
+        questions = [q1, q2, q3, q4]
+
+        for i in range(4):
+            cur.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", [
+            question_num, 
+            prof['userid'], 
+            session['userid'], 
+            questions[i]])
             question_num += 1
 
         cur.close()
