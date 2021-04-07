@@ -22,13 +22,14 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-
 def make_dicts(cursor, row):
     return dict((cursor.description[idx][0], value)
                 for idx, value in enumerate(row))
 
 # one=True: dictionary
 # one=False: list of dictionaries
+
+
 def query_db(query, args=(), one=False):
     cur = get_db().execute(query, args)
     rv = cur.fetchall()
@@ -130,8 +131,12 @@ def signin():
                         (session['userid'], session['password']), one=True)
         session['usertype'] = user['usertype']
         if session['usertype'] == 'instructor':
+            session['username'] = query_db('select username from Instructor where userid=?', [
+                                           session['userid']], one=True)['username']
             session['value'] = 2
         else:
+            session['username'] = query_db('select username from Student where userid=?', [
+                                           session['userid']], one=True)['username']
             session['value'] = 1
         db.close()
     else:
@@ -150,6 +155,7 @@ def logout():
     session.clear()
     return redirect(url_for('home'))
 
+
 @app.route("/studentFeedback", methods=['GET', 'POST'])
 def studentFeedback():
     db = get_db()
@@ -157,12 +163,13 @@ def studentFeedback():
     cur = db.cursor()
 
     prof = query_db("select * from Instructor")
-    
+
     if request.method == "POST":
         feedback = request.form
         question_num = 1
 
-        prof = query_db("select * from Instructor where username=?",[request.form['prof-person']], one=True) 
+        prof = query_db("select * from Instructor where username=?",
+                        [request.form['prof-person']], one=True)
         q1 = feedback['question1']
         q2 = feedback['question2']
         q3 = feedback['question3']
@@ -171,19 +178,19 @@ def studentFeedback():
 
         for i in range(4):
             cur.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", [
-            question_num, 
-            prof['userid'], 
-            session['userid'], 
-            questions[i]])
+                question_num,
+                prof['userid'],
+                session['userid'],
+                questions[i]])
             question_num += 1
-
         cur.close()
-        
+
     prof = query_db("select * from Instructor")
     db.commit()
     db.close()
-    
+
     return render_template("student-feedback.html", value=session['value'], professors=prof)
+
 
 @app.route("/marks")
 def marks():
@@ -195,11 +202,41 @@ def marks():
     marks = query_db("select * from Marks where studentID=?", [student_id])
 
     for mark in marks:
-        professor = query_db("select username from Instructor where userid=?", [mark['professorID']], one=True)
+        professor = query_db("select username from Instructor where userid=?", [
+                             mark['professorID']], one=True)
         mark['username'] = professor['username']
 
     db.close()
     return render_template("marks.html", marks=marks, value=session['value'])
+
+
+@app.route("/studentRemark", methods=["POST", "GET"])
+def studentRemark():
+    db = get_db()
+    db.row_factory = make_dicts
+    cur = db.cursor()
+    feedback = request.form
+
+    assignments = query_db("select * from Marks where studentID=?", [session['userid']])
+    print(assignments)
+
+    if (request.form == "POST"):
+        prof = query_db("select * from Instructor where username=?",
+            [request.form['prof-person']], one=True)
+
+        for i in range(4):
+        #cur.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", [
+        #    ,
+        #    prof['userid'],
+        #    session['userid'],
+        #    questions[i]])
+            cur.close()
+
+    db.commit()
+    db.close()
+
+    return render_template("student-remark.html", marks=marks, value=session['value'])
+
 
 if __name__ == '_main_':
     app.run(debug=True)

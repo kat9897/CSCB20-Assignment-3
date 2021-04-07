@@ -20,17 +20,17 @@
         <div class="table-header-cell">Professor</div>
         <div class="table-header-cell">Mark</div>
         <div class="table-header-cell">Type</div>
-        <div class="table-header-cell">Remark Request</div>
+        <div class="table-header-cell" colspan="2">Remark Request</div>
       </div>
-      <div class="table-body">
+      <div class="table-body btn">
         {% for mark in marks %}
-        <div class="table-body-row-3 btn">
+        <div class="table-body-row-3">
           <div class="table-body-cell">{{ mark['username'] }}</div>
           <div class="table-body-cell">{{ mark['mark'] }}</div>
           <div class="table-body-cell">{{ mark['type'] }}</div>
-          <div class="table-body-cell btn"><a href="/student-remark">Submit Remark Request</a></div>
+          <a href="{{ url_for('studentRemark')}}">Submit Remark Request</a>
         </div>
-        {% endfor %}  
+        {% endfor %}
       </div>
     </div>
   </div>
