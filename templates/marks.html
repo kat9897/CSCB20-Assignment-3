@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block head %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/signin.css') }}"
+    />
+    {% endblock %}
+    <title>CSCB20 Assignment 3</title>
+  </head>
+  <body>
+    {% extends "index.html" %} {% block content %}
+    <div class="box">
+      <table>
+          <tr>
+              <th>Professor</th>
+              <th>Mark</th>
+              <th>Type</th>
+          </tr>
+          {% for mark in marks %}
+          <tr>
+              <td>{{ mark['professorID'] }}</td>
+              <td>{{ mark['mark'] }}</td>
+              <td>{{ mark['Type'] }}</td>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+    {% endblock %}
+  </body>
+</html>

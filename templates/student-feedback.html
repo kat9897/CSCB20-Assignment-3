@@ -1,53 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block head %}
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles/signin.css') }}"
-    />
-    {% endblock %}
-    <title>CSCB20 Assignment 3</title>
-  </head>
-  <body>
-    {% extends "index.html" %} {% block content %}
-    <div class="box">
-      <form method="POST">
-        <textarea
-          id="userid-input-box"
-          type="text"
-          name="q1"
-          placeholder="What do you like about the instructor's teachings?"
-        ></textarea>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/signin.css') }}" />
+  {% endblock %}
+  <title>CSCB20 Assignment 3</title>
+</head>
+
+<body>
+  {% extends "index.html" %} {% block content %}
+  <div class="box">
+    <select id="usertype-input-box" type="text" name="usertype" class="input">
+      {% for professor in professors %}
+      <option name="professor" value="{{ professor['username'] }}">{{ professor['username'] }}</option>
+      {% endfor %}
+    </select>
+
+    <form method="POST">
+      <textarea id="userid-input-box" type="text" name="q1"
+        placeholder="What do you like about the instructor's teachings?"></textarea>
       </br>
-      <textarea
-          id="userid-input-box"
-          type="text"
-          name="q2"
-          placeholder="What do you recommend the instructor do in order to improve their teaching methods?"
-        ></textarea>
+      <textarea id="userid-input-box" type="text" name="q2"
+        placeholder="What do you recommend the instructor do in order to improve their teaching methods?"></textarea>
       </br>
-      <textarea
-          id="userid-input-box"
-          type="text"
-          name="q3"
-          placeholder="What do you like about the labs?"
-        ></textarea>
+      <textarea id="userid-input-box" type="text" name="q3" placeholder="What do you like about the labs?"></textarea>
       </br>
-      <textarea
-          id="userid-input-box"
-          type="text"
-          name="q4"
-          placeholder="What do you recommend the lab instructors do in order to improve their teaching methods?"
-        ></textarea>
+      <textarea id="userid-input-box" type="text" name="q4"
+        placeholder="What do you recommend the lab instructors do in order to improve their teaching methods?"></textarea>
       </br>
-        <pre id="errorMessage">{{ error }}</pre>
-        <input type="submit" id="button" name="submit-button" value="submit feedback" />
-      </form>
-    </div>
-    {% endblock %}
-  </body>
+      <pre id="errorMessage">{{ error }}</pre>
+      <input type="submit" id="button" name="submit-button" value="submit feedback" />
+    </form>
+  </div>
+  {% endblock %}
+</body>
+
 </html>

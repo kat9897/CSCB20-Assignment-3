@@ -12,7 +12,7 @@ app.secret_key = b'Assignment'
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g.database = sqlite3.connect(DATABASE)
+        db = g._database = sqlite3.connect(DATABASE)
     return db
 
 
@@ -27,7 +27,8 @@ def make_dicts(cursor, row):
     return dict((cursor.description[idx][0], value)
                 for idx, value in enumerate(row))
 
-
+# one=True: dictionary
+# one=False: list of dictionaries
 def query_db(query, args=(), one=False):
     cur = get_db().execute(query, args)
     rv = cur.fetchall()
@@ -147,11 +148,39 @@ def logout():
 def studentFeedback():
     db = get_db()
     db.row_factory = make_dicts
+    cursor = db.cursor()
+
+    prof = query_db("select * from Instructor")
     
-    return render_template("student-feedback.html", value=session['value'])
+    if request.method == "POST":
+        feedback = request.form
+        prof = query_db("select * from Instructor where username=?", [feedback['professor']], one=True) 
 
+        question_num = 1
+        for question in feedback:
+            cursor.execute("insert into Feedback (questionNum, professorID, studentID, answer) values (?, ?, ?, ?)", 
+            [question_num, prof['userid'], session['userid'], question])
+            question_num += 1
+        
+        db.commit()
+        db.close()
+        cursor.close()
+    
+    return render_template("student-feedback.html", value=session['value'], professors=prof)
 
+@app.route("/marks")
+def marks():
+    db = get_db()
+    db.row_factory = make_dicts
+    student_id = session['userid']
 
+    # List of dictionaries
+    marks = query_db("select * from Marks where studentID=?", [student_id])
+    
+    print(marks)
+
+    db.close()
+    return render_template("marks.html", marks=marks, value=session['value'])
 
 if __name__ == '_main_':
     app.run(debug=True)
