@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/remark.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 3</title>
+  </head>
+
+  <body>
+    {% extends "index.html" %} {% block content %}
+      <div class="table">
+        <div class="table-header"> Remark Requests </div>
+  
+        <div class="table-header-row">
+          <div class="header-header-cell"> StudentID </div>
+          <div class="header-header-cell"> Username </div>
+          <div class="header-header-cell"> Test Name </div>
+          <div class="header-header-cell"> Message </div>
+        </div>
+  
+        <div class="table-body">
+          {% for request in requests %}
+          <div class="table-body-row">
+            <div class="table-body-cell"> {{ request['studentID'] }} </div>
+            <div class="table-body-cell"> {{ request['username'] }} </div>
+            <div class="table-body-cell"> {{ request['testName'] }} </div>
+            <div class="table-body-cell"> {{ request['message'] }} </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endblock %}
+  </body>
+</html>
