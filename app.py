@@ -153,6 +153,8 @@ def signin():
 @app.route("/logout")
 def logout():
     session.clear()
+    session['value'] = 0
+    session['usertype'] = ''
     return redirect(url_for('home'))
 
 
@@ -241,6 +243,43 @@ def studentRemark():
 
     return render_template("student-remark.html", marks=marks, value=session['value'])
 
+# Links
 
-if __name__ == '_main_':
+@app.route("/assignments")
+def assignments():
+    return render_template("assignments.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/calendar")
+def calendar():
+    return render_template("calendar.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/syllabus")
+def syllabus():
+    return render_template("syllabus.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/lectures")
+def lectures():
+    return render_template("lectures.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/labs")
+def labs():
+    return render_template("labs.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/tests")
+def tests():
+    return render_template("tests.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/courseTeam")
+def courseTeam():
+    return render_template("courseTeam.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/news")
+def news():
+    return render_template("news.html", value=session['value'], usertype=session['usertype'])
+
+@app.route("/externalLinks")
+def externalLinks():
+    return render_template("externalLinks.html", value=session['value'], usertype=session['usertype'])
+
+if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/labs.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 2</title>
+  </head>
+  <body>
+    <div class="main-container">
+      {% extends "index.html" %}{% block content %}
+      <!--Inspiration from https://wisdmlabs.com/blog/responsive-tables-using-css-div-tag/-->
+      <div class="main-table">
+          <div class="table-header">Lab Materials</div>
+          <div class="table-header-row">
+              <div class="table-header-cell">Test</div>
+              <div class="table-header-cell">Date</div>
+              <div class="table-header-cell">Topic</div>
+              <div class="table-header-cell">Solution</div>
+            
+          </div>
+          <div class="table-body">
+              <div class="table-body-row-1 btn">
+                  <div class="table-body-cell">1</div>
+                  <div class="table-body-cell">February 10</div>
+                  <div class="table-body-cell"><a target="_blank" href="lec_materials/balancedtrees.pdf">AVL Trees</a>
+                    <a target="_blank" href="lec_materials/w3_worksheet_interval_inclass.pdf">Interval Trees</a>    
+                </div>
+                  <div class="table-body-cell"><a target="_blank" href="tests/test1.pdf">Test1 Soln</a></div>
+              </div>
+              <div class="table-body-row-2 btn">
+                  <div class="table-body-cell">2</div>
+                  <div class="table-body-cell">March 13</div>
+                  <div class="table-body-cell"><a target="_blank" href="lec_materials/heaps_inclass.pdf">Heaps</a>
+                    <a target="_blank" href="lec_materials/mst_handout.pdf">MST</a>
+                    <a target="_blank" href="lec_materials/dijkstra.pdf">Dijkstra</a>
+                    <a target="_blank" href="lec_materials/scc_handout.pdf">SCC</a> 
+                </div>
+                  <div class="table-body-cell">Will update soon</div>
+              </div>
+              <div class="table-body-row-3 btn">
+                <div class="table-body-cell">3</div>
+                <div class="table-body-cell">TBD</div>
+                <div class="table-body-cell"></div>
+                <div class="table-body-cell"></div>
+              </div>
+          </div>
+        </div>
+
+      </div></br></br></br></br>
+    
+    </div>{% endblock %}
+  </div>
+  </body>
+</html>

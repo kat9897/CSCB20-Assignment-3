@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/news.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 2</title>
+</head>
+
+<body>
+    <div class="main-container">
+        {% extends "index.html" %}{% block content %}
+        <h1 class="news-title">News</h1>
+        <div class="general-div btn">
+            <div class="general-text-all">
+                <div class="general-title">
+                    <h1>Lecture 8 is now out</h1>
+                </div>
+                <div class="general-text">
+                    <p class="general-info">
+                        The recording for Lecture 8 is now available under the <a href="{{url_for('lectures')}}">Lectures</a> tab.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="general-div btn">
+            <div class="general-text-all">
+                <div class="general-title">
+                    <h1>New Assignment Due</h1>
+                </div>
+                <div class="general-text">
+                    <p class="general-info">
+                        Your Assignment 3 will be due on Friday, March 19, 2021. Don't forget!
+                    </p>
+                </div>
+            </div>
+        </div>{% endblock %}
+    </div>
+</body>
+
+</html>

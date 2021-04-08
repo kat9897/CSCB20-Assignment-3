@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/syllabus.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 2</title>
+</head>
+
+<body>
+    <div class="main-container">
+        {% extends "index.html" %}{% block content %}
+        <div id="main-table">
+            <div id="table-header">Lectures</div>
+            <div id="table-header-row">
+                <div class="table-header-cell">Week</div>
+                <div class="table-header-cell">Week of</div>
+                <div class="table-header-cell">Topics</div>
+                <div class="table-header-cell">Wednesday Pre-Lecture</div>
+                <div class="table-header-cell">Wednesday Slides/Recording</div>
+                <div class="table-header-cell">Thursday Pre-Lecture</div>
+                <div class="table-header-cell">Thursday Slides/Recording</div>
+            </div>
+            <div id="table-body">
+                <div class="table-body-row-1 btn">
+                    <div class="table-body-cell">1</div>
+                    <div class="table-body-cell">Jan. 11</div>
+                    <div class="table-body-cell">Introduction: Worst Case Complexity</div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w1/w1.pdf">Intro Slides PDF</a></div>
+                    <div class="table-body-cell">CLRS 3.1 (not including little "oh") or watch 
+                        <a href="https://www.youtube.com/watch?v=__vX2sjlpXU">Big Oh</a> and 
+                        <a href="https://www.youtube.com/watch?v=JU767SDMDvA">Insertion Sort</a></div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w1/worksheet1.pdf">Worksheet 1 PDF</a>
+                        <a href="https://utoronto.zoom.us/rec/play/w5Ims_xwzyJUVhutTMqNBT0caqXCWYyMWx5X-FJvA1dFPpCrjdO8V5osw6hsxEM74HVTmX9jZ2jdwCLj.qvnXbtIQPChGF0bo">Zoom Recording</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w1/worksheet1_inclass.pdf">In-Class Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w1/complexity.pdf">Slides PDF</a></div>
+
+                </div>
+                <div class="table-body-row-2 btn">
+                    <div class="table-body-cell">2</div>
+                    <div class="table-body-cell">Jan. 18</div>
+                    <div class="table-body-cell">Balanced Trees (AVL)</div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w1/worksheet2_2021.pdf">Worksheet 2 PDF</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w2/worksheet1_inclass_thursday.pdf">In-Class Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w1/complexity_part2.pdf">Slides PDF</a>
+                        <a href="https://utoronto.zoom.us/rec/play/xe3-BWhQIa99HuA6ar-kqNg028IUwxpfPnCN0r4sFtxP0_-MDbeK6coEm-bLm7b8GzO6FTwMXr9uqcMf.IvWbqDbkC9o5p3R1">Zoom Recording</a></div>
+                    <div class="table-body-cell">Refresh your understanding of 
+                        <a href="https://www.youtube.com/watch?v=mtvbVLK5xDQ">Binary Search Trees</a>
+                        <a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">Visualization of BSTs</a></div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w2/avl_worksheet.pdf">Worksheet 2 PDF</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w2/avl_worksheet_inclass.pdf">In-Class Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w2/balancedtrees.pdf">Slides PDF</a>
+                        <a href="https://utoronto.zoom.us/rec/play/YJYxBNbdKY8lIY98qjI_jHY5ZC73gSUeFCtAKmy6xJF6GEtw_VWFTFGr_guqhthaDEoRhYogPHBbR3fa.c5lUGL0uWjqS5aUX">Zoom Recording</a>
+                    </div>
+                </div>
+                <div class="table-body-row-1 btn">
+                    <div class="table-body-cell">3</div>
+                    <div class="table-body-cell">Jan. 25</div>
+                    <div class="table-body-cell">AVL Trees Height and Augment. Interval Trees</div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w3/avl_aug_worksheet.pdf">AVL Trees Augmenting Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w3/avl_aug_worksheet_inclass.pdf">In-Class Worksheet</a>
+                        <a href="https://utoronto.zoom.us/rec/play/xe3-BWhQIa99HuA6ar-kqNg028IUwxpfPnCN0r4sFtxP0_-MDbeK6coEm-bLm7b8GzO6FTwMXr9uqcMf.IvWbqDbkC9o5p3R1">Zoom Recording</a>
+                    </div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w3/w3_worksheet_interval.pdf">Interval Trees Solutions</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w3/w3_worksheet_interval_inclass.pdf">In-Class Interval Trees Worksheet</a>
+                        <a href="https://utoronto.zoom.us/rec/play/79LC30arivLpru-P863qalDb3ZjdsfdFrBMQPw-LuxDxxyvhcF_SURRw1zHHzgoW4UaVzrkNw-akYHC9.z4jw34MXv1txuaEo">Zoom Recording</a>
+                    </div>
+                </div>
+                <div class="table-body-row-2 btn">
+                    <div class="table-body-cell">4</div>
+                    <div class="table-body-cell">Feb. 1</div>
+                    <div class="table-body-cell">Finish Interval Trees, Heaps, and Graph Search Algorithms</div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w3/w3__interval_inclass_feb3.pdf">In-Class Interval Tree Search Proof Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w4/heaps_worksheet.pdf">Heaps Worksheet</a>
+                        <a href="https://utoronto.zoom.us/rec/play/zpBKZxDPmhHRldejrZ0fnXt1Cvrp0ofjSzjzXwQiDCrBze29y1GDemjGLp8uMLg0txf5m4_Sl_j8Zg0g.17AKCDIZldEHg825">Zoom Recording</a>
+                    </div>
+                    <div class="table-body-cell">Chapter 6.1 - 6.4</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w4/heaps_inclass.pdf">In-Class Heaps Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w3/w3_worksheet_interval.pdf">Interval Trees Solutions Worksheet</a>
+                        <a href="https://utoronto.zoom.us/rec/play/79LC30arivLpru-P863qalDb3ZjdsfdFrBMQPw-LuxDxxyvhcF_SURRw1zHHzgoW4UaVzrkNw-akYHC9.z4jw34MXv1txuaEo">Zoom Recording</a>
+                    </div>
+                </div>
+                <div class="table-body-row-1 btn">
+                    <div class="table-body-cell">5</div>
+                    <div class="table-body-cell">Feb. 8</div>
+                    <div class="table-body-cell">Graph Searches and Minimum Spanning Trees</div>
+                    <div class="table-body-cell">Term Test Wednesday</div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">If you have not had your tutorial, read the graph handout on the tutorials page</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/graphs_inclass.pdf">In-Class Graph Notes</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/mst_dijkstra_idea_inclass.pdf">In-Class MST Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/graphs.pdf">Graph Search Slides PDF</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/mst_handout.pdf">MST Slides</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w4/graphs_worksheet.pdf">Searches Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/worksheet_mst.pdf">MST Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/worksheet_mst_solns.pdf">MST Worksheet Solutions</a>                        
+                        <a href="https://utoronto.zoom.us/rec/play/SCnzsPIBWdq0QN1KR9XM6yNQrRbY0n7iQwRZWlzycAsmUBJ0Qo0BlSLbE3jDoBP0TXfExU3mQcmS0jwS.5o01Wyhv502R1fm9">Zoom Recording</a>
+                    </div>
+                </div>
+                <div class="table-body-row-2 btn">
+                    <div class="table-body-cell">6</div>
+                    <div class="table-body-cell">Feb. 15</div>
+                    <div class="table-body-cell">Proof of Prim's, Dijkstra's Algorithm, and Strongly Connected Components</div>
+                    <div class="table-body-cell">Chapter 24.3: Practice Prim's Algorithm</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w6/worksheet_mst_inclass.pdf">In-Class MST Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w6/dijkstra.pdf">Dijkstra PDF</a>
+                        <a href="https://utoronto.zoom.us/rec/play/s8HE2dtGwcl7OWtfMMlQ9I_ivR3mmbieSP3lPhYygBqdIj7Do-uExVtGY5Ln-f0Pj9whkVdMS5w8hIU4.Glja1FlY-UeG3zYv">Zoom Recording</a>
+                    </div>
+                    <div class="table-body-cell">Chapter 22.5 and Review DFS: Make sure you understand!</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w6/scc_handout.pdf">Strongly Connected Components (SCC) Slides</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w6/SCC_examples.pdf">SCC Examples Notes</a>
+                        <a href="https://utoronto.zoom.us/rec/play/-Trk15VmueBwP8g1ewUUDeMIp-jSbJT8RDztfFgbkbVvsJBFNTLr6h4ootD2bC7jyX9HiQomclqYqbYH.XEg8QLRQfSMQ0iv4">Zoom Recording</a>
+                    </div>
+                </div>
+                <div class="table-body-row-1 btn">
+                    <div class="table-body-cell">7</div>
+                    <div class="table-body-cell">Feb. 22</div>
+                    <div class="table-body-cell">Amortized Analysis</div>
+                    <div class="table-body-cell">Chaper 17.4 and 21</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w7/amortized_handout_inclass.pdf">In-Class Amortized Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w7/amortized_handout.pdf">Amortized Lecture Slides</a>
+                        <a href="https://utoronto.zoom.us/rec/play/Ms9uZypiMbcYSes1jevEOJZf8cqMq_PBybH85r2rEdaARuXQOQcWF3dYgiaidZqGQTuaqchmJ1-hax4D.JS_0iOHyLPMjt66M">Zoom Recording</a>
+                    </div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w7/potential_inclass.pdf">In-Class Potential Lecture Worksheet</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w7/potential.pdf">Potential Lecture Slides</a>
+                        <a href="https://utoronto.zoom.us/rec/play/CkJgpEBfL2nrdOuItJHlNO5xC3Uvy4-yYQePug3l-GEWE0h1ANwKM3H-pIrUfDv8WMUcJRXbFdaSUHi3.AmfGlBo6OeKxBGrb">Zoom Recording</a>
+                    </div>
+                </div>
+                <div class="table-body-row-2 btn">
+                    <div class="table-body-cell">8</div>
+                    <div class="table-body-cell">March 1</div>
+                    <div class="table-body-cell">Disjoint Sets and Fibonacci Heaps</div>
+                    <div class="table-body-cell">Chapter 20</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w8/disjoint.pdf">Disjoint Sets Worksheet</a>
+                        <a href="https://utoronto.zoom.us/rec/play/BM5ICZEeNZV0HlYeDiza1zvzCOPstKNpe6uxOw2pmw5Uq20Upz23r89scLKdSj6fgk033vB2RMclIV85.1ydcqiZ09BXwkTNh">Zoom Recording</a>
+                    </div>
+                    <div class="table-body-cell">None</div>
+                    <div class="table-body-cell">
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w8/fibonacci_inclass.pdf">Fibonacci Heaps Annotated PDF</a>
+                        <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w8/fibonacci_2_inclass.pdf">Fibonacci Heaps Complexity PDF</a>
+                        <a href="https://utoronto.zoom.us/rec/play/1xPM9-18oaFDzYKGHkwns_sBKZzpnpzgFDLvUyus1pdvP2FaYswyK4MTs329Hdq9_f_xpA8we7vb1JVy.yEqV7pl8ySuN6K__">Zoom Recording</a>
+                    </div>
+                </div>
+            </div>
+        </div>{% endblock %}
+    </div>
+</body>
+
+</html>

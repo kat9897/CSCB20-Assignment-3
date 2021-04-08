@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/externalLinks.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 2</title>
+</head>
+
+<body>
+    <div class="main-container">
+        {% extends "index.html" %}{% block content %}
+        <div class="external-links butn">
+            <a href="https://piazza.com/class/kju7e2uwa8p3sf" target="_blank"> Piazza </a>
+            <a href="https://markus.utsc.utoronto.ca/cscb63w21/assignments" target="_blank"> Markus </a>
+            <a href="https://forms.gle/7h7xLyZEU3T1u5446" target="_blank"> Anonymous Feedback </a>
+        </div>{% endblock %}
+    </div>
+</body>
+
+</html>

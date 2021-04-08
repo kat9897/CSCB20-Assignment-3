@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {% block head %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/labs.css') }}" />
+  {% endblock %}
+  <title>CSCB20 Assignment 2</title>
+</head>
+
+<body>
+  <div class="main-container">
+    {% extends "index.html" %}{% block content %}
+    <!--Inspiration from https://wisdmlabs.com/blog/responsive-tables-using-css-div-tag/-->
+    <div class="main-table">
+      <div class="table-header">Lab Materials</div>
+      <div class="table-header-row">
+        <div class="table-header-cell">Week</div>
+        <div class="table-header-cell">Topic</div>
+        <div class="table-header-cell">Handout</div>
+        <div class="table-header-cell">Solutions</div>
+      </div>
+      <div class="table-body">
+        <div class="table-body-row-1">
+          <div class="table-body-cell">1</div>
+          <div class="table-body-cell">No Tutorial</div>
+          <div class="table-body-cell"></div>
+          <div class="table-body-cell"></div>
+        </div>
+        <div class="table-body-row-2 btn">
+          <div class="table-body-cell">2</div>
+          <div class="table-body-cell">Worst Case Complexity</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/w2.pdf">Week2 Handout</a></div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/w2_soln.pdf">Week2 Solution</a></div>
+        </div>
+        <div class="table-body-row-3 btn">
+          <div class="table-body-cell">3</div>
+          <div class="table-body-cell">AVL Trees Insert/Delete</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/tutorial-03.pdf">Week3 Handout</a></div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/tutorial-03_soln.pdf">Week3 Solution</a>
+          </div>
+        </div>
+        <div class="table-body-row-4 btn">
+          <div class="table-body-cell">4</div>
+          <div class="table-body-cell">Practice Term test format</div>
+          <div class="table-body-cell"></div>
+          <div class="table-body-cell"></div>
+        </div>
+        <div class="table-body-row-5 btn">
+          <div class="table-body-cell">5</div>
+          <div class="table-body-cell">Graph Search Algorithms</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/graph_reading.pdf">Graph Definitions</a>
+            <a target="_blank" href="tutorial_files/BFS_tut5.pdf">BFS Handout</a>
+            <a target="_blank" href="tutorial_files/tutorial-05.pdf">BFS Practice</a>
+          </div>
+          <div class="table-body-cell">No Solution</div>
+        </div>
+        <div class="table-body-row-6 btn">
+          <div class="table-body-cell">6</div>
+          <div class="table-body-cell">MSTs and Prims Algorithm</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/tutorial-06.pdf">Week6 Handout</a></div>
+          <div class="table-body-cell">No Solution</div>
+        </div>
+        <div class="table-body-row-7 btn">
+          <div class="table-body-cell">7</div>
+          <div class="table-body-cell">Dijkstra</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/tutorial7.pdf">Week7 Handout</a></div>
+          <div class="table-body-cell">No Solution</div>
+        </div>
+        <div class="table-body-row-8 btn">
+          <div class="table-body-cell">8</div>
+          <div class="table-body-cell">Amortized Analysis - Binary Counter</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/tutorial-08_2021.pdf">Week8 Handout</a>
+          </div>
+          <div class="table-body-cell">No Solution</div>
+        </div>
+        <div class="table-body-row-9 btn">
+          <div class="table-body-cell">9</div>
+          <div class="table-body-cell">Probability</div>
+          <div class="table-body-cell"><a target="_blank" href="tutorial_files/tutorial9.pdf">Week9 Handout</a></div>
+          <div class="table-body-cell">No Solution</div>
+        </div>
+      </div>
+    </div>
+
+  </div></br></br></br></br>
+  <div class="main-table">
+    <div class="table-header">Tutorial Information</div>
+    <div class="table-header-row">
+      <div class="table-header-cell">TA Name</div>
+      <div class="table-header-cell">Email</div>
+      <div class="table-header-cell">Tutorial Link</div>
+    </div>
+    <div class="table-body">
+      <div class="table-body-row-1 btn">
+        <div class="table-body-cell">Danhua Cai</div>
+        <div class="table-body-cell"><a target="_blank"
+            href="danhua.cai@mail.utoronto.ca">danhua.cai@mail.utoronto.ca</a></div>
+        <div class="table-body-cell"><a target="_blank"
+            href="https://utoronto.zoom.us/j/5870061564?pwd=NGxKdE5uQkRCcUsxQmtuUE83REt3QT09">Tutorial 0001: Tuesday 7-8
+            pm</a></div>
+      </div>
+
+      <div class="table-body-row-2 btn">
+        <div class="table-body-cell">Aamir Haroon</div>
+        <div class="table-body-cell"><a target="_blank"
+            href="aamir.haroon@mail.utoronto.ca">aamir.haroon@mail.utoronto.ca</a></div>
+        <div class="table-body-cell"><a target="_blank" href="https://utoronto.zoom.us/j/84562268687">Tutorial 0002:
+            Wednesdays 7-8 pm</a>
+          <a target="_blank" href="https://utoronto.zoom.us/j/87063915829">Tutorial 0003: Thursday 5-6 pm</a>
+        </div>
+      </div>
+
+      <div class="table-body-row-3 btn">
+        <div class="table-body-cell">Andrew Leung</div>
+        <div class="table-body-cell"><a target="_blank"
+            href="andrewyk.leung@mail.utoronto.ca">andrewyk.leung@mail.utoronto.ca</a></div>
+        <div class="table-body-cell"><a target="_blank" href=" https://utoronto.zoom.us/j/85821617865">Tutorial 0004:
+            Friday 12-1 pm</a></div>
+      </div>
+      <div class="table-body-row-4 btn">
+        <div class="table-body-cell">Jiayi Zhao</div>
+        <div class="table-body-cell">N/A</div>
+        <div class="table-body-cell"><a target="_blank" href="https://utoronto.zoom.us/j/83191316209">Tutorial 0005:
+            Thursday 6-7 pm</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div>{% endblock %}
+  </div>
+</body>
+
+</html>

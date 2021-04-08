@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/syllabus.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 2</title>
+</head>
+
+<body>
+    <div class="main-container">
+        {% extends "index.html" %}{% block content %}
+        <div id="main-table">
+            <div id="table-header">Syllabus</div>
+            </div>
+        </div>
+        </br></br>
+        <div class="download-syllabus btn">
+            <a href="CSCB63 Syllabus.docx" class="download-button" download="CSCB63 Syllabus">Click Here to Download!</a>
+        </div>{% endblock %}
+    </div>
+</body>
+
+</html>

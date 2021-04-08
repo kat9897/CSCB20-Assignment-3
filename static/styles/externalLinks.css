@@ -1,0 +1,26 @@
+body {
+    background-image: url("https://i.imgur.com/qDvkfzg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.butn a {
+    text-decoration: none;
+    color: #00204e;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 #00204e;
+    transition: 0.2s ease;
+    border-radius: 3px;
+  }
+  
+  .butn a:hover {
+    background-color: #335e9b;
+    padding: 30px;
+    color: white;
+  }
+  
+  .butn a:active {
+    box-shadow: 0 5px 0 #00204e;
+  }

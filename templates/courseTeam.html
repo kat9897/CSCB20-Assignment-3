@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/courseTeam.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 2</title>
+</head>
+
+<body>
+    <div class="main-container">
+        {% extends "index.html" %} {% block content %}
+        <div class="course-instructor-panel">
+            <div class="instructor-title">
+                <h1>Course Team</h1>
+            </div>
+            <div class="instructor-cells">
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/anna-bretscher">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Anna_Bretscher.jpg?itok=fsOxaRe6">
+                    <p><b>Anna Bretscher</b>
+                        Instructor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/ashton-anderson">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Anderson%2C%20Ashton01.jpg?itok=e1Er6jZr">
+                    <p><b>Ashton Anderson</b>
+                        Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/abbas-attarwala">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/default_images/person-placeholder.png?itok=mokjdQ4B">
+                    <p><b>Abbas Attarwala</b>
+                        CLTA Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/nick-cheng">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Nick_Cheng.jpg?itok=p_yqXXPh">
+                    <p><b>Nick Cheng</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/wayne-enright">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Wayne_Enright.jpg?itok=3A9k_6h7">
+                    <p><b>Wayne Enright</b>
+                        Professor Emeritus</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/francisco-estrada">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Paco_Estrada.jpg?itok=3uB-WeDp">
+                    <p><b>Francisco Estrada</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/david-fleet">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/David_Fleet-B.jpg?itok=7n28at9I">
+                    <p><b>David Fleet</b>
+                        Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/jakob-foerster">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Jakob%20Foerster%202_114x138.jpg?itok=HM8VBzOO">
+                    <p><b>Jakob Foerster</b>
+                        Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/moshe-gabel">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/default_images/person-placeholder.png?itok=mokjdQ4B">
+                    <p><b>Moshe Gabel</b>
+                        CLTA Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/vassos-hadzilacos">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Vassos_Hadzilacos_1.jpg?itok=6ALJQWsc">
+                    <p><b>Vassos Hadzilacos</b>
+                        Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/brian-harrington">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Brian_Harrington.jpg?itok=0aVLOMpv">
+                    <p><b>Brian Harrington</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/graeme-hirst">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Graeme_Hirst.jpg?itok=f70mS4NP">
+                    <p><b>Graeme Hirst</b>
+                        Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/nick-koudas">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Nick_Koudis.jpg?itok=0Yd4WrDM">
+                    <p><b>Nick Koudas</b>
+                        Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/kaveh-mahdaviani">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/default_images/person-placeholder.png?itok=mokjdQ4B">
+                    <p><b>Kaveh Mahdaviani</b>
+                        CLT Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/michael-molloy">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Michael_Molloy.jpg?itok=KGnOeAR1">
+                    <p><b>Michael Molloy</b>
+                        Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/richard-pancer">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Richard_Pancer.jpg?itok=ccwcy9AY">
+                    <p><b>Richard Pancer</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/gennady-pekhimenko">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Pekhimenko%2C%20Gennady01.jpg?itok=p3Y90Hyz">
+                    <p><b>Gennady Pekhimenko</b>
+                        Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/alan-rosselet">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Alan_Rosselet.jpg?itok=p6FtnkUy">
+                    <p><b>Alan Rosselet</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/thierry-sans">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Thierry_Sans-11.jpg?itok=tbUX1jFr">
+                    <p><b>Thierry Sans</b>
+                        Assistant Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/bianca-schroeder">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Bianca_Schroeder_0.jpg?itok=3W1vk4K1">
+                    <p><b>Bianca Schroeder</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/anya-tafliovich">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Anya_Tafliovich.jpg?itok=ZNtys9MP">
+                    <p><b>Anya Tafliovich</b>
+                        Associate Professor</p>
+                    </a>
+                </div>
+                <div class="instructor-cell">
+                    <a target="_blank" href="https://www.utsc.utoronto.ca/cms/nandita-vijaykumar">
+                    <img class="instructor-pic"
+                        src="https://www.utsc.utoronto.ca/cms/sites/utsc.utoronto.ca.cms/files/styles/person-thumbnail/public/Nandita%20Vijaykumar.jpg?itok=kupUOvj9">
+                    <p><b>Nandita Vijaykumar</b>
+                        Assistant Professor</p>
+                    </a>
+                </div>
+            </div>
+        </div></br></br>{% endblock %}
+    </div>
+</body>
+
+</html>
