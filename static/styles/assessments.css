@@ -1,0 +1,44 @@
+body {
+  background-image: url("https://onesearch.library.utoronto.ca/sites/default/files/music_interior.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* edit marks button */
+.editMarks {
+  margin: auto;
+  width: 120px;
+  padding: 10px;
+  background-color: white;
+  opacity: 0.6;
+  font-size: 15pt;
+  text-align: center;
+}
+
+/* Table styles */
+
+.table {
+  margin: auto;
+  width: 40%;
+  height: auto;
+  background-color: white;
+  text-align: center;
+}
+
+.table .table-header {
+  background-color: #335e9b;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 20px;
+}
+
+.table .table-row {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.table .table-row:nth-child(odd) {
+  background-color: #c2c2c2;
+}

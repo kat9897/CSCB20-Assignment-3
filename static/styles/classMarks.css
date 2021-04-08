@@ -1,0 +1,84 @@
+body {
+  background-image: url("https://onesearch.library.utoronto.ca/sites/default/files/music_interior.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* go back button */
+.back {
+  position: sticky;
+  left: 200px;
+  top: 230px;
+  width: 80px; 
+  padding: 10px;
+  background-color: white;
+  opacity: 0.6;
+  font-size: 15pt;
+  text-align: center;
+}
+
+/* edit marks button */
+.editMarks {
+  margin: auto;
+  width: 120px;
+  padding: 10px;
+  background-color: white;
+  opacity: 0.6;
+  font-size: 15pt;
+  text-align: center;
+}
+
+/* Table but not a table */
+
+.table {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Table Header */
+
+.table-header {
+  display: table-caption;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: #335e9b;
+  color: white;
+}
+
+.table-header-row {
+  display: table-header-group;
+  background-color: #335e9b;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.table-header-cell {
+  display: table-cell;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  color: white;
+}
+
+/* Table Body */
+
+.table-body {
+  display: table-row-group;
+}
+
+.table-body-row {
+  display: table-row;
+  background-color: white;
+}
+
+.table .table-body-row:nth-child(odd) {
+  background-color: #c2c2c2;
+}
