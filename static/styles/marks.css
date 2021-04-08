@@ -93,6 +93,26 @@ body {
   box-shadow: 0 5px 0 #00204e;
 }
 
+input {
+  text-decoration: none;
+  color: #00204e;
+  padding: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 #00204e;
+  transition: 0.2s ease;
+  border-radius: 3px;
+}
+
+input:hover {
+  background-color: #335e9b;
+  padding: 8px;
+  color: white;
+}
+
+input:active {
+  box-shadow: 0 5px 0 #00204e;
+}
+
 form {
   display: flex;
   align-items: center;

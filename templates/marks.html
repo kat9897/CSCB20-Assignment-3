@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {% block head %}
-  <link rel="stylesheet" href="{{ url_for('static',filename='styles/marks.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/marks.css') }}" />
   {% endblock %}
   <title>CSCB20 Assignment 3</title>
 </head>
@@ -25,10 +25,13 @@
       <div class="table-body btn">
         {% for mark in marks %}
         <div class="table-body-row-3">
-          <div class="table-body-cell">{{ mark['username'] }}</div>
-          <div class="table-body-cell">{{ mark['mark'] }}</div>
-          <div class="table-body-cell">{{ mark['type'] }}</div>
-          <a href="{{ url_for('studentRemark')}}">Submit Remark Request</a>
+            <div class="table-body-cell">{{ mark['username'] }}</div>
+            <div class="table-body-cell">{{ mark['mark'] }}</div>
+            <div class="table-body-cell">{{ mark['type'] }}</div>
+            <form method="POST" action="/marks">
+              <textarea placeholder="Type reason here..."></textarea>
+              <input type="submit" name="submit-button" value="Submit Remark Request" />
+            </form>
         </div>
         {% endfor %}
       </div>

@@ -192,7 +192,7 @@ def studentFeedback():
     return render_template("student-feedback.html", value=session['value'], professors=prof)
 
 
-@app.route("/marks")
+@app.route("/marks", methods=["POST", "GET"])
 def marks():
     db = get_db()
     db.row_factory = make_dicts
@@ -205,6 +205,10 @@ def marks():
         professor = query_db("select username from Instructor where userid=?", [
                              mark['professorID']], one=True)
         mark['username'] = professor['username']
+
+    if request.form == "POST":
+        cur = db.cursor()
+        
 
     db.close()
     return render_template("marks.html", marks=marks, value=session['value'])
