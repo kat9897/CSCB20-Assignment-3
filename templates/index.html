@@ -15,6 +15,10 @@
     <div class="main-container">
         <nav>
             <a href="{{url_for('home')}}"> Home </a>
+            {% if value == 0 %}
+            <a href="{{url_for('signin')}}"> Sign In </a>
+            <a href="{{url_for('signup')}}"> Sign Up </a>
+            {% elif value == 1 %}
             <a href="{{url_for('assignments')}}"> Assignments </a>
             <a href="{{url_for('calendar')}}"> Calendar </a>
             <a href="{{url_for('syllabus')}}"> Syllabus </a>
@@ -24,14 +28,19 @@
             <a href="{{url_for('courseTeam')}}"> Course Team </a>
             <a href="{{url_for('news')}}"> News </a>
             <a href="{{url_for('externalLinks')}}"> External Links </a>
-            {% if value == 0 %}
-            <a href="{{url_for('signin')}}"> Sign In </a>
-            <a href="{{url_for('signup')}}"> Sign Up </a>
-            {% elif value == 1 %}
             <a href="{{url_for('studentFeedback')}}"> Give Feedback </a>
             <a href="{{url_for('marks')}}"> Welcome {{ session['username'] }}! Click here for your marks </a>
             <a href="{{url_for('logout')}}"> Log Out </a>
             {% else %}
+            <a href="{{url_for('assignments')}}"> Assignments </a>
+            <a href="{{url_for('calendar')}}"> Calendar </a>
+            <a href="{{url_for('syllabus')}}"> Syllabus </a>
+            <a href="{{url_for('lectures')}}"> Lectures </a>
+            <a href="{{url_for('labs')}}"> Labs </a>
+            <a href="{{url_for('tests')}}"> Tests </a>
+            <a href="{{url_for('courseTeam')}}"> Course Team </a>
+            <a href="{{url_for('news')}}"> News </a>
+            <a href="{{url_for('externalLinks')}}"> External Links </a>
             <a href="{{url_for('logout')}}"> Log Out </a>
             {% endif %}
 
