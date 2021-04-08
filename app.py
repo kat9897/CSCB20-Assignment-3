@@ -15,13 +15,11 @@ def get_db():
         db = g._database = sqlite3.connect(DATABASE)
     return db
 
-
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-
 
 def make_dicts(cursor, row):
     return dict((cursor.description[idx][0], value)
@@ -38,7 +36,7 @@ def query_db(query, args=(), one=False):
 
 @app.route('/')
 def home():
-    if 'userid' in session:
+    if 'userid' in session and 'usertype' in session:
         return render_template("index.html", value=session['value'], usertype=session['usertype'])
     else:
         return render_template("index.html", value=0)
@@ -122,17 +120,18 @@ def signin():
         session['password'] = request.form['password']
         user = query_db('select * from User where userid=? AND password=?',
                         (session['userid'], session['password']), one=True)
-        session['usertype'] = user[1]
-        if session['usertype'] == 'instructor':
-            session['value'] = 2
-        else:
-            session['value'] = 1
         db.close()
     else:
         db.close()
         return render_template("signin.html", value=0)
+
+    # check which type of user
     if user is not None:
-        db.close()
+        session['usertype'] = user['usertype']
+        if session['usertype'] == 'instructor':
+            session['value'] = 2
+        else:
+            session['value'] = 1
         return redirect(url_for('home'))
     else:
         session.clear()
@@ -181,6 +180,63 @@ def marks():
 
     db.close()
     return render_template("marks.html", marks=marks, value=session['value'])
+
+
+### INSTRUCTORS ###
+@app.route("/assessments")
+def assessments():
+    db = get_db()
+    db.row_factory = make_dicts
+
+    # fetch data from database
+    tests = query_db('SELECT * FROM Assessment') # list of dictionaries
+    db.close()
+
+    return render_template("assessments.html", tests = tests)
+
+@app.route("/classMarks/<testID>")
+def classMarks(testID):
+    db = get_db()
+    db.row_factory = make_dicts
+
+    #fetch grades for testID = test['testID']
+    marks = query_db('SELECT testID, studentID, username, mark\
+                        FROM Marks\
+                        INNER JOIN Student ON studentID = userid\
+                        WHERE testID = ?', testID) 
+    test = query_db('SELECT * FROM Assessment WHERE testID = ?', testID, one = True)
+    db.close()
+
+    return render_template("classMarks.html", marks = marks, test = test)
+
+@app.route("/editMark")
+def editMark():
+    db = get_db()
+    db.row_factory = make_dicts
+    db.close()
+
+    return None
+
+
+@app.route('/remark')
+def remark():
+    db = get_db()
+    db.row_factory = make_dicts
+
+    #fetch regrade requests for instructor = current instructor in session
+    #instructorID = session['userid']
+    requests = query_db("SELECT studentID, username, testName, message \
+            FROM Remark \
+            INNER JOIN Assessment ON Remark.testID = Assessment.testID\
+            INNER JOIN Student ON studentID = userid\
+            WHERE instructorID = ?", (session['userid'],)) 
+    db.close()
+
+    return render_template("remark.html", requests = requests)
+
+@app.route('/feedback')
+def feedback():
+    return None
 
 if __name__ == '_main_':
     app.run(debug=True)
