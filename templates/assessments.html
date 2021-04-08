@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/assessments.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 3</title>
+  </head>
+
+  <body>
+    {% extends "index.html" %} {% block content %}
+    <div class="table">
+      <!--div class="table-header">Assessments</div-->
+
+      {% for test in tests %}
+        <div class="table-row">
+          <div class="table-cell btn">
+            <a href="{{url_for('classMarks', testID = test['testID'])}}"> {{ test['testName'] }} </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <br><br><br><br>
+
+    <div class="editMarks btn"> 
+      <a href="{{url_for('editMark')}}"> Edit Marks </a>
+    </div>
+    {% endblock %}
+  </body>
+</html>

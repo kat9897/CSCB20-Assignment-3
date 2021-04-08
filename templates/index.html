@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}" />
     {% block head %}
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/index-specific.css') }}" />
@@ -15,19 +15,20 @@
 <body>
     <div class="main-container">
         <nav>
-            {% if value == 0 %}
+            {% if value == 2 %}
+              <a href="{{url_for('assessments')}}"> Class Grades </a>
+              <a href="{{url_for('remark')}}"> Remark Requests </a>
+              <a href="{{url_for('feedback')}}"> Anonymous Feedback </a>
+              <a href="{{url_for('logout')}}"> Log Out </a>
+            {% elif value == 1 %}
+                <a href="{{url_for('home')}}"> Home </a>
+                <a href="{{url_for('studentFeedback')}}"> Give Feedback </a>
+                <a href="{{url_for('marks')}}"> Marks </a>
+                <a href="{{url_for('logout')}}"> Log Out </a>
+            {% else %}
                 <a href="{{url_for('home')}}"> Home </a>
                 <a href="{{url_for('signin')}}"> Sign In </a>
                 <a href="{{url_for('signup')}}"> Sign Up </a>
-            {% elif value == 1 %}
-            <a href="{{url_for('home')}}"> Home </a>
-            <a href="{{url_for('studentFeedback')}}"> Give Feedback </a>
-            <a href="{{url_for('marks')}}"> Marks </a>
-            <a href="{{url_for('logout')}}"> Log Out </a>
-            {% else %}
-                <a href="{{url_for('home')}}"> Home </a>
-                <a href="{{url_for('home')}}">{{ usertype }}</a>
-                <a href="{{url_for('logout')}}"> Log Out </a>
             {% endif %}
 
         </nav>
@@ -94,12 +95,12 @@
             </div>
             <div class="links-text">
                 <p class="links-info">
-                    For LaTeX installations, go to the 
+                    For LaTeX installations, go to the
                     <a href="http://latex-project.org/ftp.html">latex project install website</a>. Both the Windows and Mac versions listed come with editors as well as the packages and compilers.</br>
                     </br>
-                    Once you are up and running, I recommend downloading the 
-                    <a href="http://tobi.oetiker.ch/lshort/lshort.pdf">Not So Short Guide to LaTeX</a>. 
-                    Everything you need is there, however it may be overkill. 
+                    Once you are up and running, I recommend downloading the
+                    <a href="http://tobi.oetiker.ch/lshort/lshort.pdf">Not So Short Guide to LaTeX</a>.
+                    Everything you need is there, however it may be overkill.
                     You can also start with this <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/template.tex">template.tex</a>
                     and add as you need.</br>
                     </br>
@@ -114,7 +115,7 @@
             <p>Designed and Created by Katrina Best and Zixiao Ren</p>
         </footer>
     </div>
-    
+
 </body>
 
 </html>

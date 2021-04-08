@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    {% extends "index.html" %} {% block content %}
+    <div class="box">
+      <div class="information">Username: {{mark['username']}}</div>
+      <div class="information">studentID: {{mark['studentID']}}</div>
+      </br>
+       
+      <form method="POST" action="/editMarks">
+        <textarea class="input-box" type="text" name="newMark"
+        placeholder="{{ mark['mark'] }}"></textarea>
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>

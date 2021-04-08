@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/classMarks.css') }}" />
+    {% endblock %}
+    <title>CSCB20 Assignment 3</title>
+  </head>
+
+  <body>
+    {% extends "index.html" %} {% block content %}
+    <div class="back btn"> 
+      <a href="{{ url_for('assessments') }}"> back </a>
+    </div>
+
+    <div class="table">
+      <div class="table-header"> Grades for {{ test['testName'] }}</div>
+
+      <div class="table-header-row">
+        <div class="header-header-cell"> StudentID </div>
+        <div class="header-header-cell"> Username </div>
+        <div class="header-header-cell"> Grade </div>
+      </div>
+
+      <div class="table-body">
+        {% for mark in marks %}
+        <div class="table-body-row">
+          <div class="table-body-cell"> {{ mark['studentID'] }} </div>
+          <div class="table-body-cell"> {{ mark['username'] }} </div>
+          <div class="table-body-cell"> {{ mark['mark'] }} </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="editMarks btn"> 
+      <a href="{{url_for('editMark')}}"> Edit Marks </a>
+    </div>
+    {% endblock %}
+  </body>
+</html>
