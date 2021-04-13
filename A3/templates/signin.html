@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block head %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles/signin.css') }}"
+    />
+    {% endblock %}
+    <title>CSCB20 Assignment 3</title>
+  </head>
+  <body>
+    {% extends "index.html" %} {% block content %}
+    <div class="box">
+      <form method="POST">
+        <input
+          id="userid-input-box"
+          type="text"
+          name="userid"
+          placeholder="User ID"
+        />
+      </br>
+        <input
+          id="password-input-box"
+          type="text"
+          name="password"
+          placeholder="Password"
+        />
+      </br>
+        <pre id="errorMessage">{{ error }}</pre>
+        <input type="submit" id="button" name="submit-button" value="sign in" />
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>

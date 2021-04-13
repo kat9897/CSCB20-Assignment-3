@@ -1,0 +1,56 @@
+body {
+  background-image: url("https://onesearch.library.utoronto.ca/sites/default/files/music_interior.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#userid-input-box {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#password-input-box {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#button {
+  background-color: #808ea3;
+  box-shadow: 0 5px 0 #00204e;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  position: relative;
+  left: 25%;
+}
+
+#button:hover {
+  background-color: #335e9b;
+}
+
+#button:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+.box {
+  position: relative;
+  top: 40%;
+  left: 35%;
+}
+
+#errorMessage {
+  color: white;
+}
