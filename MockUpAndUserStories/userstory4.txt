@@ -1,4 +1,0 @@
-At the bottom of each screen, they should be able to
-click on a button that takes them to the faculty of UTSC
-math and sciences and also a small note of who made the
-website
