@@ -12,3 +12,8 @@ body {
 .instructor-title {
     color: white;
 }
+
+.instructor-pic {
+    height: 150px;
+    width: 100px;
+}
