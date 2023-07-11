@@ -1,0 +1,241 @@
+.main-container, body {
+  font-family: sans-serif;
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+/* Links */
+.btn a {
+  text-decoration: none;
+  color: #00204e;
+  padding: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 #00204e;
+  transition: 0.2s ease;
+  border-radius: 3px;
+}
+
+.btn a:hover {
+  background-color: #335e9b;
+  padding: 8px;
+  color: white;
+}
+
+.btn a:active {
+  box-shadow: 0 5px 0 #00204e;
+}
+
+/* Navigation Bar */
+
+nav {
+  top: 0;
+  right: 0;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #00204e;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+}
+
+nav a:hover {
+  background: #335e9b;
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #00204e;
+  padding-top: 10px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: 20px;
+}
+
+footer a {
+  background-color: #808ea3;
+  box-shadow: 0 5px 0 #00204e;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+footer a:hover {
+  background-color: #335e9b;
+}
+
+footer a:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+footer p {
+  color: grey;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+
+  margin: 10px auto 10px auto;
+  top: 0;
+  width: 600px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  background-color: #00204E;
+  color: white;
+  border-radius: 10px;
+
+  animation-name: header;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+/* General Information */
+
+.general-div,
+.description-div,
+.course-instructor-panel,
+.links-div {
+  display: flex;
+  background: white;
+  padding-left: 20px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.general-div {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.general-pic {
+  display: flex;
+  align-items: center;
+  width: 208;
+  height: 276;
+  padding-right: 35px;
+  padding-left: 10px;
+}
+
+.general-pic img {
+  justify-content: right;
+}
+
+.general-pic img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.description-div {
+  flex-direction: column;
+}
+
+.links-div {
+  flex-direction: column;
+}
+
+
+/* Calendar */
+
+.add-cal {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+/* Course Team Cells */
+
+.instructor-cell {
+  box-shadow: 8px 8px 10px grey;
+  background: white;
+  text-align: center;
+  flex-direction: column;
+  height: 200px;
+  width: 150px;
+  margin: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.instructor-cell:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.instructor-cells {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.instructor-cell a {
+  text-decoration: none;
+  outline: none;
+  color: black;
+}
+
+.course-instructor-panel {
+  flex-direction: column;
+}
+
+/* External Links */
+.external-links {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.external-links a {
+  padding: 40px;
+  font-size: 30px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+/* Animations */
+
+@keyframes header {
+  0% {
+    background-color: #00204e;
+    color: white;
+  }
+  50% {
+    background-color: white;
+    color: #00204e;
+  }
+  100% {
+    background-color: #00204e;
+    color: white;
+  }
+}

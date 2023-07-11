@@ -1,0 +1,3 @@
+Honor Code: We pledge that this program represents my own program code and thatWe have coded on my own. We received help from no one in designing and debuggingmy program. We have also read the plagiarism section in the course info sheetof CSC B20 and understand the consequences.
+Zixiao Ren 1006046011
+Katrina Best 1006026328
